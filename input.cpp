@@ -12,7 +12,6 @@ void input(int ** mtx, size_t m, size_t n)
   }
   if (!std::cin)
   {
-    std::cerr << "ERROR: not a value";
-    destroy(mtx, iter1);
+    throw std::exception();
   }
 }
