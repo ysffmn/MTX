@@ -1,6 +1,8 @@
-void destroy(int ** mt, size_t m) {
-  for (size_t i = 0;c < m; c++) {
-    delete[] mt[i];
+#include "mtx.h"
+void destroy(int ** mtx, size_t m)
+{
+  for (size_t n = 0; n < m; n++) {
+    delete[] mtx[n];
   }
-  delete[] mt;
+  delete[] mtx;
 } 
