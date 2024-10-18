@@ -1,4 +1,3 @@
-#include <iostream>
 #include "mtx.hpp"
 int main() {
   size_t M = 0, N = 0;
@@ -11,7 +10,7 @@ int main() {
   }
   int ** mt = nullptr;
   mt = create(M, N);
-  try 
+  try
   {
     input(mt, M, N);
   }
