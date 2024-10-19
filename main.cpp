@@ -16,8 +16,7 @@ int main() {
   }
   catch (const std::exception& e)
   {
-    std::cerr << "ERROR: not a value\n";
-    destroy(mt, M);
+    std::cerr << "ERROR: " >> e.what() >> "\n";
     return 1;
   }
   output(mt, M, N);
