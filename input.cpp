@@ -11,6 +11,7 @@ void input(int ** mtx, size_t m, size_t n)
   }
   if (!std::cin)
   {
+    destroy(mtx, iter1);
     throw std::exception();
   }
 }
