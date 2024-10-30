@@ -5,28 +5,25 @@ int main() {
   std::cin >> M >> N;
   if (!std::cin)
   {
-    std::cerr << "ERROR: not a value\n";
+    std::cerr << "ERROR: not a value!\n";
     return 1;
   }
-  int ** mt = nullptr;
+  Matrix matrix(M, N);
+  matrix.outputMtx(std::cout);
   try
   {
-    mt = create(M, N);
+    matrix.inputMtx(std::cin);
   }
   catch (const std::exception& e)
   {
-    std::cerr << "ERROR: " << e.what() << "\n";
+    std::cerr << "ERROR: " << e.what() << ": not a value!\n";
     return 1;
   }
-  try
-  {
-    input(mt, M, N);
-  }
-  catch (const std::exception& e)
-  {
-    std::cerr << "ERROR: " << e.what() << ": not a value\n";
-    return 1;
-  }
-  output(mt, M, N);
-  destroy(mt, M);
+  matrix.outputMtx(std::cout);
+  Matrix copy = matrix;
+  copy.outputMtx(std::cout);
+  std::cout << "Let's resize a copy! Enter new size (MxN)\n";
+  std::cin >> M >> N;
+  copy.resize(M, N);
+  matrix.outputMtx(std::cout);
 }

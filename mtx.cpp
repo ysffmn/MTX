@@ -15,11 +15,13 @@ Matrix::~Matrix()
 }
 Matrix::Matrix(const Matrix& copy)
 {
+  std::cout << "//copy construct executed\n";
   int** newMtx = create(copy.getColumnNum(), copy.getRowNum());
   destroy(mtx, m);
+  mtx = newMtx;
+  destroy(newMtx, m);
   m = copy.getColumnNum();
   n = copy.getRowNum();
-  mtx = newMtx;
   fillMtx();
 }
 int Matrix::getColumnNum() const
