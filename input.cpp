@@ -5,7 +5,7 @@ void input(std::istream & in, int** mtx, size_t m, size_t n)
   for (; iter1 < m; ++iter1)
   {
     std::cout << "Column:" << iter1 + 1<< " please enter " << n << " numbers\n";
-    for (size_t iter2 = 0; iter2 < n; ++iter2) 
+    for (size_t iter2 = 0; iter2 < n; ++iter2)
     {
       in >> mtx[iter1][iter2]; 
     }

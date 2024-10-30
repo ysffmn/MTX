@@ -1,10 +1,6 @@
 #include "mtx.hpp"
-Matrix::Matrix()
-{
-  mtx = nullptr;
-  m = 0;
-  n = 0;
-} 
+Matrix::Matrix(): mtx(nullptr), m(0), n(0)
+{}
 Matrix::Matrix(int m, int n): m(m), n(n), mtx(create(m, n))
 {
   fillMtx();
@@ -19,7 +15,7 @@ Matrix::Matrix(const Matrix& copy)
   mtx = create(copy.getColumnNum(), copy.getRowNum());
   m = copy.getColumnNum();
   n = copy.getRowNum();
-  for (int i = 0; i < m; ++i) 
+  for (int i = 0; i < m; ++i)
   {
     for (int j = 0; j < n; ++j)
     {

@@ -26,6 +26,7 @@ int main() {
   std::cin >> M >> N;
   if (!std::cin)
   {
+    std::cerr << "ERROR: not a value!\n";
     return 1;
   }
   copy.resize(M, N);
