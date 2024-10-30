@@ -24,6 +24,11 @@ int main() {
   copy.outputMtx(std::cout);
   std::cout << "Let's resize a copy! Enter new size (MxN)\n";
   std::cin >> M >> N;
+  if (!std::cin)
+  {
+    return 1;
+  }
   copy.resize(M, N);
-  matrix.outputMtx(std::cout);
+  std::cout << "new size: " << copy.getColumnNum() << "x" << copy.getRowNum() << "\n";
+  copy.outputMtx(std::cout);
 }

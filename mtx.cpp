@@ -16,13 +16,16 @@ Matrix::~Matrix()
 Matrix::Matrix(const Matrix& copy)
 {
   std::cout << "//copy construct executed\n";
-  int** newMtx = create(copy.getColumnNum(), copy.getRowNum());
-  destroy(mtx, m);
-  mtx = newMtx;
-  destroy(newMtx, m);
+  mtx = create(copy.getColumnNum(), copy.getRowNum());
   m = copy.getColumnNum();
   n = copy.getRowNum();
-  fillMtx();
+  for (int i = 0; i < m; ++i) 
+  {
+    for (int j = 0; j < n; ++j)
+    {
+      mtx[i][j] = copy.mtx[i][j];
+    }
+  }
 }
 int Matrix::getColumnNum() const
 {
