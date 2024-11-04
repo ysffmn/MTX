@@ -11,7 +11,6 @@ Matrix::~Matrix()
 }
 Matrix::Matrix(const Matrix& copy)
 {
-  std::cout << "//copy construct executed\n";
   mtx = create(copy.getColumnNum(), copy.getRowNum());
   m = copy.getColumnNum();
   n = copy.getRowNum();
@@ -37,7 +36,7 @@ void Matrix::fillMtx()
   {
     for (int j = 0; j < n; ++j)
     {
-      mtx[i][j] = 1;
+      mtx[i][j] = 0;
     }
   }
 }
@@ -52,9 +51,25 @@ void Matrix::inputMtx(std::istream & in)
 void Matrix::resize(int newm, int newn)
 {
   int** newMtx = create(newm, newn);
+  for (int i = 0; i < newm; ++i)
+  {
+    if (i < m)
+    {
+      for (int j = 0; j < newn; ++j)
+      {
+        newMtx[i][j] = (j < n ? mtx[i][j] : 0);
+      }
+    }
+    else
+    {
+      for (int j = 0; j < newn; ++j)
+      {
+        newMtx[i][j] = 0;
+      }
+    }
+  }
   destroy(mtx, m);
   m = newm;
   n = newn;
   mtx = newMtx;
-  fillMtx();
 }

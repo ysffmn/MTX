@@ -9,7 +9,9 @@ int main() {
     return 1;
   }
   Matrix matrix(M, N);
+  std::cout << "Matrix created:\n";
   matrix.outputMtx(std::cout);
+  std::cout << "Let's fill it, enter " << M * N << " numbers!\n";
   try
   {
     matrix.inputMtx(std::cin);
@@ -21,6 +23,7 @@ int main() {
   }
   matrix.outputMtx(std::cout);
   Matrix copy = matrix;
+  std::cout << "Copied matrix:\n";
   copy.outputMtx(std::cout);
   std::cout << "Let's resize a copy! Enter new size (MxN)\n";
   std::cin >> M >> N;
@@ -30,6 +33,6 @@ int main() {
     return 1;
   }
   copy.resize(M, N);
-  std::cout << "new size: " << copy.getColumnNum() << "x" << copy.getRowNum() << "\n";
+  std::cout << "New  matrix with size: " << copy.getColumnNum() << "x" << copy.getRowNum() << "\n";
   copy.outputMtx(std::cout);
 }
